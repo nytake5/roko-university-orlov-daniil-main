@@ -1,0 +1,70 @@
+﻿@model Library.UI.Web.Models.NewspaperView
+
+@{
+    ViewData["Title"] = "CreateWithExistingEdition";
+}
+
+<h1>Create with existing edition</h1>
+
+<h4>Newspaper</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CreateWithExistingEdition">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <select class="js-example-basic-single" name="Edition">
+                    @foreach (var edition in ViewBag.Editions)
+                    {
+                        <option value="@edition.ToString()">@edition.ToString()</option>
+                    }
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="YearOfPublication" class="control-label"></label>
+                <input asp-for="YearOfPublication" class="form-control" />
+                <span asp-validation-for="YearOfPublication" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IssueNumber" class="control-label"></label>
+                <input asp-for="IssueNumber" class="form-control" />
+                <span asp-validation-for="IssueNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ISSN" class="control-label"></label>
+                <input asp-for="ISSN" class="form-control" />
+                <span asp-validation-for="ISSN" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PageCount" class="control-label"></label>
+                <input asp-for="PageCount" class="form-control" />
+                <span asp-validation-for="PageCount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" asp-controller="Notes">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.js-example-basic-single').select2();
+        });
+    </script>
+}
+@section Styles {
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+}

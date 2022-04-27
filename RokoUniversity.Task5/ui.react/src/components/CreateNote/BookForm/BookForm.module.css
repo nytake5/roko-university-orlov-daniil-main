@@ -1,0 +1,30 @@
+.BookForm{
+    display: flex;
+    flex-direction: column;
+    padding: 5px 0;
+    align-items: left;
+    justify-content: space-evenly;
+    background-color: #501f3a ;
+    color: #501f3a;
+}
+
+.BookForm *{
+    color: #CCCCCC ;
+    background-color: #501f3a;
+}
+
+.BookForm h1{
+    text-align: center;
+    font-size: 18px;
+}
+
+.BookForm input{
+    font-size: 18px;
+    background-color: #501f3a;
+    width: 70%;
+}
+
+.BookForm label{
+    font-size: 18px;
+    
+}

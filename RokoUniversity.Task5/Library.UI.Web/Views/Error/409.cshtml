@@ -1,0 +1,9 @@
+﻿@model Exception
+@{
+    ViewData["Title"] = "Error409";
+}
+
+<h1 class="text-danger">@Model.ToString()</h1>
+<h2 class="text-danger">An error occurred while processing your request.</h2>
+
+<p>@Model.Message</p>

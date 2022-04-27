@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Library.UI.Web.Models.NoteView>
+
+@{
+    ViewData["Title"] = "Index";
+
+    var pager = new PageViewModel();
+
+    int pageNo = 0;
+
+    if (ViewBag.Page != null)
+    {
+        pager = ViewBag.Page;
+        pageNo = pager.CurrentPage;
+    }
+}
+
+<h1>Index</h1>
+@Html.ActionLink("Create Book", "Create", "Book") |
+@Html.ActionLink("Create Newspaper", "Create", "Newspaper") |
+@Html.ActionLink("Create Patent", "Create", "Patent") |
+@Html.ActionLink("List users", "Index", "User")
+<table class="table">
+    <thead>
+        <tr>
+            <th>    
+                Info
+            </th>
+            <th>
+                Identity
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>    
+            
+            <td>
+                @Html.ActionLink(item.GetInfo(), "Details", new { id = item.ID, Type = item.GetNotesType() })
+            </td>
+            <td>
+                @item.Identity()
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID, Type = item.GetNotesType() }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID, Type = item.GetNotesType() })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+<partial name="_PageHelp" model="@pager" />

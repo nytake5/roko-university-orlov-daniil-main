@@ -1,0 +1,37 @@
+
+.note {
+    padding: 15px;
+    border: 2px solid #cb2d6f;
+    background-color:  #cb2d6f;
+    margin-top: 15px;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    border-radius: 16px;
+}
+
+.note__content{
+    background-color:  #cb2d6f;
+}
+.note__content *{
+    font-size: 20px;
+    background-color:  #cb2d6f;
+    color: #CCCCCC;
+}
+
+.note__func {
+    background-color:  #cb2d6f;
+    display: flex;
+}
+
+.note__func *{
+    cursor: pointer;
+    background-color:  #cb2d6f;
+    margin: 0 2px;
+}
+
+.info {
+    background-color:  #cb2d6f;
+    
+}
+

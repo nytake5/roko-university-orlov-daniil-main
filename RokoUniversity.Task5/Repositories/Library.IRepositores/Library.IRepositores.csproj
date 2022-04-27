@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Entities\Library.Entities\Library.Entities.csproj" />
+    <ProjectReference Include="..\..\Library.Dto\Library.Dto.csproj" />
+  </ItemGroup>
+
+</Project>
+    

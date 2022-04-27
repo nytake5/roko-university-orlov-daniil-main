@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "FileSearchV2.0": {
+      "commandName": "Project",
+      "commandLineArgs": "\"D:\\\\\""
+    }
+  }
+}

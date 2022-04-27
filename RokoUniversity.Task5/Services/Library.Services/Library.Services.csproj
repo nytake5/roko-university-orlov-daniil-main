@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="11.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Entities\Library.Entities\Library.Entities.csproj" />
+    <ProjectReference Include="..\..\Library.Dto\Library.Dto.csproj" />
+    <ProjectReference Include="..\..\Repositories\Library.IRepositores\Library.IRepositores.csproj" />
+    <ProjectReference Include="..\..\Repositories\Library.Repositories\Library.Repositories.csproj" />
+    <ProjectReference Include="..\Library.IServices\Library.IServices.csproj" />
+  </ItemGroup>
+
+</Project>

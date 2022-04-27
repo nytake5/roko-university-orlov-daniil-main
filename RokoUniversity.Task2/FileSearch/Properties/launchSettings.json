@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "FileSearch": {
+      "commandName": "Project",
+      "commandLineArgs": "\"\\Test2\" \"test\" -m \"*.txt\" "
+    }
+  }
+}

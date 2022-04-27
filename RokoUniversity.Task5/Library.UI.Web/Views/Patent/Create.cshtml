@@ -1,0 +1,128 @@
+﻿@model Library.UI.Web.Models.PatentView
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>PatentView</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Number" class="control-label"></label>
+                <input asp-for="Number" class="form-control" />
+                <span asp-validation-for="Number" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PageCount" class="control-label"></label>
+                <input asp-for="PageCount" class="form-control" />
+                <span asp-validation-for="PageCount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateOfApplicationSubmission" class="control-label"></label>
+                <input asp-for="DateOfApplicationSubmission" class="form-control" />
+                <span asp-validation-for="DateOfApplicationSubmission" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateOfPublication" class="control-label"></label>
+                <input asp-for="DateOfPublication" class="form-control" />
+                <span asp-validation-for="DateOfPublication" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PlaceOfPublication" class="control-label"></label>
+                <input asp-for="PlaceOfPublication" class="form-control" />
+                <span asp-validation-for="PlaceOfPublication" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AuthorsName" class="control-label"></label>
+                <select id="authorSelect" class="js-example-basic-multiple" name="AuthorsName" multiple="multiple">
+                    @foreach (var author in ViewBag.Authors)
+                    {
+                        <option value="@author.FirstName/@author.LastName">@author.FirstName @author.LastName</option>
+                    }
+                </select>
+            </div>
+            <div class="form-group">
+                <input id="CreateBook" type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+        <label>Create new Author</label>
+        <form asp-action="AddNewAuthor" asp-controller="Book" method="post">
+            <div class="form-group">
+                <input id="inputFirstname" type="text" name="firstname" class="form-control" required />
+            </div>
+            <div class="form-group">
+                <input id="inputLastname" type="text" name="lastname" class="form-control" required />
+            </div>
+            <div class="form-group">
+                <input id="AddAuthorButton" type="submit" value="Add new author" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" asp-controller="Notes">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.js-example-basic-multiple').select2();
+        });
+    </script>
+    <script>
+        function saveFields() {
+            localStorage.setItem("Title", document.getElementById("Title").value);
+            localStorage.setItem("Number", document.getElementById("Number").value);
+            localStorage.setItem("DateOfPublication", document.getElementById("DateOfPublication").value);
+            localStorage.setItem("DateOfApplicationSubmission", document.getElementById("DateOfApplicationSubmission").value);
+            localStorage.setItem("PageCount", document.getElementById("PageCount").value);
+            localStorage.setItem("PlaceOfPublication", document.getElementById("PlaceOfPublication").value);
+            localStorage.setItem("Description", document.getElementById("Description").value);
+        }
+
+        function loadFields() {
+            document.getElementById("Title").value = localStorage.getItem("Title");
+            document.getElementById("Number").value = localStorage.getItem("Number");
+            document.getElementById("DateOfPublication").value = localStorage.getItem("DateOfPublication");
+            document.getElementById("DateOfApplicationSubmission").value = localStorage.getItem("DateOfApplicationSubmission");
+            document.getElementById("PageCount").value = localStorage.getItem("PageCount");
+            document.getElementById("PlaceOfPublication").value = localStorage.getItem("PlaceOfPublication");
+            document.getElementById("Description").value = localStorage.getItem("Description");
+        }
+    </script>
+    <script>
+        document.getElementById("AddAuthorButton").onclick = function () {
+            saveFields();
+        }
+
+        window.onload = function () {
+            loadFields();
+        }
+
+        document.getElementById("CreateBook").onclick = function () {
+            localStorage.clear();
+        }
+    </script>
+}
+@section Styles{
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+}

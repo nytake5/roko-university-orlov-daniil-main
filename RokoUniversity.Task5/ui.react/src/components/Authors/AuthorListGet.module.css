@@ -1,0 +1,10 @@
+
+
+.authors {
+    display: block;
+}
+
+.authors *{
+    margin: 5px;
+    font-size: 18px;
+}
